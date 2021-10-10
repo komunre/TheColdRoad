@@ -22,6 +22,7 @@ public class HeatFurnace extends Block {
         setUnlocalizedName("heat_furnace");
         setRegistryName("heat_furnace");
         setTickRandomly(true);
+        setHardness(1.5f);
     }
 
     @Override

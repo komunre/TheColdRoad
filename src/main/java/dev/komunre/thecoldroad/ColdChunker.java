@@ -81,6 +81,15 @@ public class ColdChunker implements IChunkGenerator {
         int y = 63;
         int z1 = (z * 16 + random.nextInt(16) + 8);
         new ColdTree().generate(world, random, new BlockPos(x1, y, z1));
+
+        // Generate ore
+        for (int i = 0; i < random.nextInt(4); i++) {
+            int x2 = x * 16 + random.nextInt(16);
+            int y1 = random.nextInt(54) + 1;
+            int z2 = z * 16 + random.nextInt(16);
+            world.setBlockState(new BlockPos(x2, y1, z2), Blocks.IRON_BLOCK.getDefaultState());
+        }
+
         ForgeEventFactory.onChunkPopulate(false, this, world, random, x, z, false);
     }
 
@@ -88,7 +97,7 @@ public class ColdChunker implements IChunkGenerator {
     public boolean generateStructures(Chunk chunkIn, int x, int z) {
         random.setSeed(seed + x * 1028L + z * 856L);
         if (random.nextInt(100) > 20) return false;
-        chunkIn.setBlockState(new BlockPos(x * 16, 63, z * 16), Blocks.CHEST.getDefaultState());
+        chunkIn.setBlockState(new BlockPos(x, 63, z), Blocks.CHEST.getDefaultState());
         TileEntityChest chest = (TileEntityChest) chunkIn.getWorld().getTileEntity(new BlockPos(x * 16, 63, z * 16));
         if (chest == null) return false;
         IItemHandler cap = chest.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, EnumFacing.NORTH);

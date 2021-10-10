@@ -30,7 +30,7 @@ public class HeatSourceTile extends TileEntity implements ITickable {
                 double distance = pos.distanceSq(player.getPosition());
                 if (distance < 12.4) {
                     float currHeat = player.getEntityData().getFloat("heat");
-                    currHeat += (burnStrength * 10 + 1600) * TheColdRoad.DeltaTime;
+                    currHeat += (burnStrength * 100 + 200 + HeatManager.ColdSpeed) * TheColdRoad.DeltaTime;
                     player.getEntityData().setFloat("heat", currHeat);
                 }
             }

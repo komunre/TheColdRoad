@@ -13,6 +13,8 @@ import org.lwjgl.opengl.GL11;
 import java.util.Random;
 
 public class HeatManager {
+    public static float ColdSpeed = 800;
+
     @SubscribeEvent
     public static void RenderOverlay(RenderGameOverlayEvent renderEvent) {
         ScaledResolution resolution = renderEvent.getResolution();
@@ -46,7 +48,7 @@ public class HeatManager {
             ent.getEntityData().setFloat("heat", 100);
         }
         float currHeat = ent.getEntityData().getFloat("heat");
-        currHeat -= 600f * TheColdRoad.DeltaTime;
+        currHeat -= 800f * TheColdRoad.DeltaTime;
         ent.getEntityData().setFloat("heat", currHeat);
 
         if (currHeat <= 0) {

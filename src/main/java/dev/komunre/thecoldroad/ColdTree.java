@@ -22,7 +22,6 @@ public class ColdTree extends WorldGenAbstractTree {
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-        TheColdRoad.logger.debug("Generating new tree...");
         for (int i = 0; i < 7; i++) {
             worldIn.setBlockState(position.add(new Vec3i(0, i, 0)), Blocks.LOG.getDefaultState());
         }

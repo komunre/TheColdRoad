@@ -60,6 +60,15 @@ public class TheColdRoad
     public void preInit(FMLPreInitializationEvent event)
     {
         logger = event.getModLog();
+
+        ConfigManager.init();
+        int freezeSpeed = ConfigManager.getInt("cold", "cold_speed");
+        if (freezeSpeed == 0) {
+            ConfigManager.createConfig();
+            freezeSpeed = ConfigManager.getInt("cold", "cold_speed");
+        }
+        HeatManager.ColdSpeed = freezeSpeed;
+
         lastTick = System.currentTimeMillis();
         GameRegistry.registerTileEntity(HeatSourceTile.class, new ResourceLocation("heat_source"));
         HeatFurnace heatFurnace = new HeatFurnace();

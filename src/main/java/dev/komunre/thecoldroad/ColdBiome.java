@@ -22,5 +22,10 @@ public class ColdBiome extends Biome {
         return new ColdTree();
     }
 
+    @Override
+    public boolean getEnableSnow() {
+        return true;
+    }
+
 
 }
