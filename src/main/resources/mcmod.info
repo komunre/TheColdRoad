@@ -1,0 +1,16 @@
+[
+{
+  "modid": "thecoldroad",
+  "name": "The Cold Road",
+  "description": "The Long Dark inspired survival mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["komunre"],
+  "credits": "Komunre",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
